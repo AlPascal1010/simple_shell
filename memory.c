@@ -9,7 +9,7 @@ int bfree(void **ptr)
 {
 	if (ptr && *ptr)
 	{
-		frr(*ptr);
+		free(*ptr);
 		*ptr = NULL;
 		return (1);
 	}

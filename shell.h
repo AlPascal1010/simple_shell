@@ -115,7 +115,7 @@ void find_cmd(info_t);
 void fork_cmd(info_t);
 
 /* toem_parser.c */
-int is_cmd(info_t, char *);
+int is_cmd(info_t *, char *);
 char *dup_chars(char *, int, int);
 char *find_path(info_t *, char *, char *);
 
@@ -193,8 +193,8 @@ void free_info(info_t *, int);
 /* toem_environ.c */
 char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
-int _mysetenv(info_t);
-int _myunsetenv(inro_t *);
+int _mysetenv(info_t *);
+int _myunsetenv(info_t *);
 int populate_env_list(info_t *);
 
 /* toem_getenv.c */
@@ -209,7 +209,7 @@ int read_history(info_t *info);
 int build_history_list(info_t *info, char *buf, int linecount);
 
 /* toem_lists.c */
-list_t *add_node(laist_t **, const char *, int);
+list_t *add_node(list_t **, const char *, int);
 list_t *add_node_end(list_t **, const char *, int);
 size_t print_list_str(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);

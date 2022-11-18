@@ -13,7 +13,7 @@ int is_cmd(info_t *info, char *path)
 	(void)info;
 	if (!path || stat(path, &st))
 		return (0);
-	if (st.st_mode & s_IFREG)
+	if (st.st_mode & S_IFREG)
 	{
 		return (1);
 	}
@@ -35,7 +35,7 @@ char *dup_chars(char *pathstr, int start, int stop)
 	for (k = 0, i = start; i < stop; i++)
 		if (pathstr[i] != ':')
 			buf[k++] = pathstr[i];
-	buf[k] = 0
+	buf[k] = 0;
 		return (buf);
 }
 
@@ -67,14 +67,14 @@ char *find_path(info_t *info, char *pathstr, char *cmd)
 				_strcat(path, cmd);
 			else
 			{
-				_strcat(path. "/");
+				_strcat(path, "/");
 				_strcat(path, cmd);
 			}
 			if (is_cmd(info, path))
 				return (path);
 			if (!pathstr[i])
 				break;
-			curr_ppos = i;
+			curr_pos = i;
 		}
 		i++;
 	}

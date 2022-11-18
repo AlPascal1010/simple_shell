@@ -25,8 +25,8 @@ int is_chain(info_t *info, char *buf, size_t *p)
 	}
 	else if (buf[j] == ';') /* found end of this command */
 	{
-		buf[j] = 0;/* replace semicolon with null */
-		info->cmd_buf_type = CMD_CHAIN;
+		buf[j] = 0; /* replace semicolon with null */
+		info->cmd_buf_type = cMD_CHAIN;
 	}
 	else
 		return (0);
@@ -49,13 +49,13 @@ void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len)
 
 	if (info->cmd_buf_type == CMD_AND)
 	{
-		if (info->stautus)
+		if (info->status)
 		{
 			buf[i] = 0;
 			j = len;
 		}
 	}
-	if (info->cmd_info_type == CMD_OR)
+	if (info->cmd_buf_type == CMD_OR)
 	{
 		if (!info->status)
 		{

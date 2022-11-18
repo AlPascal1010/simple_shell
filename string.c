@@ -25,7 +25,7 @@ int _strlen(char *s)
  */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *S2)
+	while (*s1 && *s2)
 	{
 		if (*s1 != *s2)
 			return (*s1 - *s2);
@@ -65,7 +65,7 @@ char *_strcat(char *dest, char *src)
 	while (*dest)
 		dest++;
 	while (*src)
-		@dest++ = *src++;
+		*dest++ = *src++;
 	*dest = *src;
 	return (ret);
 }

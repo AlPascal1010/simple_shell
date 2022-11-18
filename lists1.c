@@ -88,7 +88,7 @@ list_t *node_starts_with(list_t *node, char *prefix, char C)
 	while (node)
 	{
 		p = starts_with(node->str, prefix);
-		if (p && ((c == -1) || (*p == C)))
+		if (p && ((C == -1) || (*p == C)))
 			return (node);
 		node = node->next;
 	}

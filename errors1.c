@@ -59,7 +59,7 @@ int print_d(int input, int fd)
 		__putchar = _eputchar;
 	if (input < 0)
 	{
-		_abs = -input;
+		_abs_ = -input;
 		__putchar('-');
 		count++;
 	}
@@ -125,7 +125,7 @@ void remove_comments(char *buf)
 	int i;
 
 	for (i = 0; buf[i] != '\0'; i++)
-		if buf[i] == '#' && (!i || buf[i - 1] == ' ')
+		if (buf[i] == '#' && (!i || buf[i - 1] == ' '))
 		{
 			buf[i] = '\0';
 			break;

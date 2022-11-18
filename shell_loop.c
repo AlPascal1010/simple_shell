@@ -29,7 +29,7 @@ int hsh(info_t *info, char **av)
 			_putchar('\n');
 		free_info(info, 0);
 	}
-	wriet_history(info);
+	write_history(info);
 	free_info(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
@@ -72,7 +72,7 @@ int find_builtin(info_t *info)
 			built_in_ret = builtintbl[i].func(info);
 			break;
 		}
-	return (built_In_ret);
+	return (built_in_ret);
 }
 
 /**
@@ -94,7 +94,7 @@ void find_cmd(info_t *info)
 	for (i = 0, k = 0; info->arg[i]; i++)
 		if (!is_delim(info->arg[i], "\t\n"))
 			k++;
-	if (!K)
+	if (!k)
 		return;
 
 	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
@@ -111,7 +111,7 @@ void find_cmd(info_t *info)
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
-			print_error(info, "not found\n");
+			print_eror(info, "not found\n");
 		}
 	}
 }
@@ -150,7 +150,7 @@ void fork_cmd(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
-				print_error(info, "permission denied\n");
+				print_eror(info, "permission denied\n");
 		}
 	}
 }

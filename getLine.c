@@ -66,7 +66,7 @@ ssize_t get_input(info_t *info)
 		check_chain(info, buf, &j, i, len);
 		while (j < len)
 		{
-			if (is_checked(info, buf, &j))
+			if (is_chain(info, buf, &j))
 				break;
 			j++;
 		}
@@ -82,7 +82,7 @@ ssize_t get_input(info_t *info)
 		return (_strlen(p));
 	}
 
-	*buf_p = buff;
+	*buf_p = buf;
 	return (r);
 }
 
@@ -99,7 +99,7 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
 
 	if (*i)
 		return (0);
-	r = read(info->rreadfd, buf, READ_BUF_SIZE);
+	r = read(info->readfd, buf, READ_BUF_SIZE);
 	if (r >= 0)
 		*i = r;
 	return (r);

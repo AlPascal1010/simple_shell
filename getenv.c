@@ -39,8 +39,6 @@ int _unsetenv(info_t *info, char *var)
 		{
 			info->env_changed = delete_node_at_index(&(info->env), i);
 			i = 0;
-			node = infohanged = delete_node_at_index(&(info->env), i);
-			i = 0;
 			node = info->env;
 			continue;
 		}
@@ -88,7 +86,7 @@ int _setenv(info_t *info, char *var, char *value)
 		node = node->next;
 	}
 	add_node_end(&(info->env), buf, 0);
-	frr(buf);
+	free(buf);
 	info->env_changed = 1;
 	return (0);
 }

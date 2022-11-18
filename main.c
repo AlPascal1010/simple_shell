@@ -18,7 +18,7 @@ int main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		fd = open(acv[1], O_RDONLY);
+		fd = open(av[1], O_RDONLY);
 		if (ac == 2)
 		{
 			if (errno == EACCES)
@@ -28,7 +28,7 @@ int main(int ac, char **av)
 				_eputs(av[0]);
 				_eputs(": 0: cant't open ");
 				_eputs(av[1]);
-				_eputschar('\n');
+				_eputchar('\n');
 				_eputchar(BUF_FLUSH);
 				exit(127);
 			}

@@ -26,11 +26,11 @@ void _eputs(char *str)
 int _eputchar(char c)
 {
 	static int i;
-	static char buff[WRITE_BUF_SIZE];
+	static char buff[WRITE_BUF_SIZ];
 
-	if (c == BUFF_FLUSH || i >= WRITE_BUFF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZ)
 	{
-		write(2, buf, i);
+		write(2, buff, i);
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
@@ -45,18 +45,18 @@ int _eputchar(char c)
  * Return: 1 on succes, -1 no error is set appropriately
  */
 
-int _putfd(char c. int fd)
+int _putfd(char c, int fd)
 {
 	static int i;
-	static char buff[WRITE_BUF_SIZE];
+	static char buff[WRITE_BUF_SIZ];
 
-	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= WRITE_BUF_SIZ)
 	{
-		write(fd, buf, i);
+		write(fd, buff, i);
 		i = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[i++] = c;
+		buff[i++] = c;
 	return (1);
 }
 
